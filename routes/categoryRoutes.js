@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Category = require('../models/Category');
 const isAuth = require('../middleware/isAuther');
+const wrapAsync = require('../middleware/wrapAsync');
 
 /**
  * @swagger
@@ -45,14 +46,14 @@ const isAuth = require('../middleware/isAuther');
  *         description: Something went wrong.
  */
 
-router.get('/', isAuth, async (req, res) => {
+router.get('/', isAuth, wrapAsync(async (req, res) => {
     try {
         const categories = await Category.find();
         res.json(categories);
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
-});
+}));
 
 
 /**
@@ -80,7 +81,7 @@ router.get('/', isAuth, async (req, res) => {
  *       500:
  *         description: Something went wrong.
  */
-router.post('/', isAuth, async (req, res) => {
+router.post('/', isAuth, wrapAsync(async (req, res) => {
     const category = new Category({
         name: req.body.name
     });
@@ -91,6 +92,6 @@ router.post('/', isAuth, async (req, res) => {
     } catch (err) {
         res.status(400).json({ message: err.message });
     }
-});
+}));
 
 module.exports = router;

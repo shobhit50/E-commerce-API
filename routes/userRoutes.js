@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const wrapAsync = require('../middleware/wrapAsync');
 
 
 
@@ -56,7 +57,7 @@ const jwt = require('jsonwebtoken');
  *       500:
  *         description: An error occurred
  */
-router.post('/register', async (req, res) => {
+router.post('/register', wrapAsync(async (req, res) => {
     try {
         const { name, email, password } = req.body;
         const newUser = await User.findOne({ name });
@@ -74,7 +75,7 @@ router.post('/register', async (req, res) => {
     } catch (error) {
         res.status(500).send('An error occurred');
     }
-});
+}));
 
 /**
  * @swagger
@@ -104,7 +105,7 @@ router.post('/register', async (req, res) => {
  *       500:
  *         description: An error occurred
  */
-router.post('/login', async (req, res) => {
+router.post('/login', wrapAsync(async (req, res) => {
     try {
         const token = req.header('auth-token');
         if (token && token.startsWith('Bearer ')) {
@@ -137,6 +138,6 @@ router.post('/login', async (req, res) => {
     } catch (error) {
         res.status(500).send('An error occurred');
     }
-});
+}));
 
 module.exports = router;

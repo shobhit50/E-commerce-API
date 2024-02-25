@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Product = require('../models/Product');
 const isAuth = require('../middleware/isAuther');
+const wrapAsync = require('../middleware/wrapAsync');
 
 
 
@@ -64,7 +65,7 @@ const isAuth = require('../middleware/isAuther');
  */
 
 // Endpoint to get products by category Id
-router.get('/category/:categoryId', isAuth, async (req, res) => {
+router.get('/category/:categoryId', isAuth, wrapAsync(async (req, res) => {
     try {
         const products = await Product.find({ category: req.params.categoryId })
             .select('title price description availability');
@@ -72,7 +73,7 @@ router.get('/category/:categoryId', isAuth, async (req, res) => {
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
-});
+}));
 /**
  * @swagger
  * /product/{id}:
@@ -100,7 +101,7 @@ router.get('/category/:categoryId', isAuth, async (req, res) => {
  *         description: An error occurred.
  */
 // Endpoint to get product details by product Id
-router.get('/:id', isAuth, async (req, res) => {
+router.get('/:id', isAuth, wrapAsync(async (req, res) => {
     try {
         const product = await Product.findById(req.params.id);
         if (product == null) {
@@ -110,7 +111,7 @@ router.get('/:id', isAuth, async (req, res) => {
     } catch (err) {
         return res.status(500).json({ message: err.message });
     }
-});
+}));
 
 
 
@@ -140,7 +141,7 @@ router.get('/:id', isAuth, async (req, res) => {
  */
 
 // Endpoint to create a new product
-router.post('/', isAuth, async (req, res) => {
+router.post('/', isAuth, wrapAsync(async (req, res) => {
     const product = new Product({
         title: req.body.title,
         price: req.body.price,
@@ -155,6 +156,6 @@ router.post('/', isAuth, async (req, res) => {
     } catch (err) {
         res.status(400).json({ message: err.message });
     }
-});
+}));
 
 module.exports = router;

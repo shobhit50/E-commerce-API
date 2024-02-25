@@ -4,7 +4,7 @@ const Cart = require('../models/Cart');
 const User = require('../models/User');
 const isAuth = require('../middleware/isAuther');
 const isOwner = require('../middleware/Isuser');
-
+const wrapAsync = require('../middleware/wrapAsync');
 
 
 /**
@@ -43,7 +43,7 @@ const isOwner = require('../middleware/Isuser');
  *         description: Something went wrong.
  */
 //  add product to cart
-router.post('/:userId', isAuth, async (req, res) => {
+router.post('/:userId', isAuth, wrapAsync(async (req, res) => {
     const { product, quantity } = req.body;
     const user = req.params.userId;
 
@@ -78,7 +78,7 @@ router.post('/:userId', isAuth, async (req, res) => {
         console.log(err);
         res.status(500).send("Something went wrong");
     }
-});
+}));
 
 /**
  * @swagger
@@ -103,7 +103,7 @@ router.post('/:userId', isAuth, async (req, res) => {
  *         description: Something went wrong.
  */
 // Endpoint to get cart by user id
-router.get('/:userId', isAuth, async (req, res) => {
+router.get('/:userId', isAuth, wrapAsync(async (req, res) => {
     try {
         const user = await User.findById(req.params.userId);
         if (!user) {
@@ -118,7 +118,7 @@ router.get('/:userId', isAuth, async (req, res) => {
         console.log(err);
         res.status(500).send("Something went wrong");
     }
-});
+}));
 
 
 
@@ -151,7 +151,7 @@ router.get('/:userId', isAuth, async (req, res) => {
  *         description: Something went wrong.
  */
 //  remove product from cart
-router.delete('/:userId/:productId', isAuth, async (req, res) => {
+router.delete('/:userId/:productId', isAuth, wrapAsync(async (req, res) => {
     const { userId, productId } = req.params;
     try {
         const user = await User.findById(userId);
@@ -172,6 +172,6 @@ router.delete('/:userId/:productId', isAuth, async (req, res) => {
         console.log(err);
         res.status(500).send("Something went wrong");
     }
-});
+}));
 
 module.exports = router;

@@ -10,6 +10,8 @@ const cartRoutes = require('./routes/cartRoutes');
 const orderRoutes = require('./routes/orderRoutes');
 const swaggerUi = require('swagger-ui-express');
 const swaggerJsdoc = require('swagger-jsdoc');
+const ExpressEroor = require('./middleware/expressError.js');
+
 
 
 main().then(() => console.log('Connected to MongoDB'))
@@ -63,7 +65,9 @@ app.use('/order', orderRoutes);
 
 
 
-
+app.all("*", (req, res, next) => {
+    next(new ExpressEroor(400, "page not found"));
+})
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);

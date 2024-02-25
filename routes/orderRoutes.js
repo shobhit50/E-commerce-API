@@ -4,7 +4,7 @@ const Cart = require('../models/Cart');
 const User = require('../models/User');
 const Order = require('../models/Order');
 const isAuth = require('../middleware/isAuther');
-
+const wrapAsync = require('../middleware/wrapAsync');
 
 
 
@@ -32,7 +32,7 @@ const isAuth = require('../middleware/isAuther');
  *         description: Something went wrong.
  */
 //  Order Placement Endpoint
-router.post('/place-order/:userId', isAuth, async (req, res) => {
+router.post('/place-order/:userId', isAuth, wrapAsync(async (req, res) => {
     console.log('user');
     const { userId } = req.params;
     try {
@@ -60,7 +60,7 @@ router.post('/place-order/:userId', isAuth, async (req, res) => {
         console.log(err);
         res.status(500).send("Something went wrong");
     }
-});
+}));
 
 /**
  * @swagger
@@ -85,7 +85,7 @@ router.post('/place-order/:userId', isAuth, async (req, res) => {
  *         description: Something went wrong.
  */
 // Get all Order History: by user id
-router.get('/order-history/:userId', isAuth, async (req, res) => {
+router.get('/order-history/:userId', isAuth, wrapAsync(async (req, res) => {
     const { userId } = req.params;
 
     try {
@@ -100,7 +100,7 @@ router.get('/order-history/:userId', isAuth, async (req, res) => {
         console.log(err);
         res.status(500).send("Something went wrong");
     }
-});
+}));
 
 
 /**
@@ -126,7 +126,7 @@ router.get('/order-history/:userId', isAuth, async (req, res) => {
  *         description: Something went wrong.
  */
 //  get Order Details by order id
-router.get('/order-details/:orderId', isAuth, async (req, res) => {
+router.get('/order-details/:orderId', isAuth, wrapAsync(async (req, res) => {
     const { orderId } = req.params;
 
     try {
@@ -140,7 +140,7 @@ router.get('/order-details/:orderId', isAuth, async (req, res) => {
         console.log(err);
         res.status(500).send("Something went wrong");
     }
-});
+}));
 
 
 
