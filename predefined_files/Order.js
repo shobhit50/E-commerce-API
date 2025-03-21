@@ -1,4 +1,4 @@
-const jwt = require('jsonwebtoken');
+const dotenv = require('dotenv');
 
 
 const handleError = (error, req, res, next) => {
