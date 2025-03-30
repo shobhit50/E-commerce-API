@@ -39,3 +39,13 @@ const handleError = (error, req, res, next) => {
         message: error.message
     });
 };
+
+
+const formatResponse = (data, message = 'Success') => {
+    return {
+        success: true,
+        message: message,
+        data: data,
+        timestamp: new Date().toISOString()
+    };
+};
