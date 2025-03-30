@@ -30,3 +30,12 @@ const authenticateUser = async (req, res, next) => {
     }
 };
 // TODO: Add error handling
+
+
+const handleError = (error, req, res, next) => {
+    console.error('Error:', error.message);
+    res.status(500).json({
+        success: false,
+        message: error.message
+    });
+};
