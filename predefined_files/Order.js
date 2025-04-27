@@ -1,4 +1,4 @@
-const bcrypt = require('bcryptjs');
+const dotenv = require('dotenv');
 
 
 const formatResponse = (data, message = 'Success') => {
