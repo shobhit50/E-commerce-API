@@ -18,3 +18,11 @@ const handleError = (error, req, res, next) => {
         message: error.message
     });
 };
+
+
+const validateInput = (data) => {
+    if (!data || typeof data !== 'object') {
+        throw new Error('Invalid input data');
+    }
+    return true;
+};
