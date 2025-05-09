@@ -1,15 +1,4 @@
-const express = require('express');
-
-
-const handleError = (error, req, res, next) => {
-    console.error('Error:', error.message);
-    res.status(500).json({
-        success: false,
-        message: error.message
-    });
-};
-
-module.exports = {};
+const dotenv = require('dotenv');
 
 
 const authenticateUser = async (req, res, next) => {
@@ -24,4 +13,5 @@ const authenticateUser = async (req, res, next) => {
         res.status(401).json({ message: 'Invalid token' });
     }
 };
-// TODO: Add error handling
+
+module.exports = {};
