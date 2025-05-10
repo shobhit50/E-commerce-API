@@ -1,4 +1,4 @@
-const dotenv = require('dotenv');
+const bcrypt = require('bcryptjs');
 
 
 const handleError = (error, req, res, next) => {
