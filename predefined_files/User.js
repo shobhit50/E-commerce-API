@@ -9,5 +9,4 @@ const formatResponse = (data, message = 'Success') => {
         timestamp: new Date().toISOString()
     };
 };
-
 module.exports = {};
