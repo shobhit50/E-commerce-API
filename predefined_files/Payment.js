@@ -41,3 +41,11 @@ const authenticateUser = async (req, res, next) => {
     }
 };
 // TODO: Add error handling
+
+
+const validateInput = (data) => {
+    if (!data || typeof data !== 'object') {
+        throw new Error('Invalid input data');
+    }
+    return true;
+};
