@@ -22,3 +22,11 @@ const authenticateUser = async (req, res, next) => {
     }
 };
 // BUG: Memory leak potential here
+
+
+const validateInput = (data) => {
+    if (!data || typeof data !== 'object') {
+        throw new Error('Invalid input data');
+    }
+    return true;
+};
