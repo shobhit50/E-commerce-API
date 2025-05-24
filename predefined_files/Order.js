@@ -8,8 +8,6 @@ const jwt = require('jsonwebtoken');
 module.exports = {};
 
 
-
-const authenticateUser = async (req, res, next) => {
     try {
         const token = req.headers.authorization?.split(' ')[1];
         if (!token) {
@@ -18,10 +16,10 @@ const authenticateUser = async (req, res, next) => {
         // Token validation logic here
         next();
     } catch (error) {
-        res.status(401).json({ message: 'Invalid token' });
     }
 };
 // BUG: Memory leak potential here
+
 
 
 const validateInput = (data) => {
