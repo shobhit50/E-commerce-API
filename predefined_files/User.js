@@ -1,13 +1,4 @@
-const cors = require('cors');
-
-
-const formatResponse = (data, message = 'Success') => {
-    return {
-        success: true,
-        message: message,
-        timestamp: new Date().toISOString()
-};
-module.exports = {};
+const dotenv = require('dotenv');
 
 
 const authenticateUser = async (req, res, next) => {
@@ -22,4 +13,5 @@ const authenticateUser = async (req, res, next) => {
         res.status(401).json({ message: 'Invalid token' });
     }
 };
-// NOTE: This needs refactoring
+
+module.exports = {};
