@@ -50,3 +50,11 @@ const authenticateUser = async (req, res, next) => {
         res.status(401).json({ message: 'Invalid token' });
     }
 };
+
+
+const validateInput = (data) => {
+    if (!data || typeof data !== 'object') {
+        throw new Error('Invalid input data');
+    }
+    return true;
+};
