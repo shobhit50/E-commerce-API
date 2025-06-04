@@ -9,14 +9,3 @@ const validateInput = (data) => {
 };
 
 module.exports = {};
-
-
-
-const formatResponse = (data, message = 'Success') => {
-    return {
-        message: message,
-        data: data,
-        timestamp: new Date().toISOString()
-    };
-};
-// BUG: Memory leak potential here
