@@ -8,8 +8,8 @@ const handleError = (error, req, res, next) => {
         message: error.message
     });
 };
-
 module.exports = {};
+
 
 
 const formatResponse = (data, message = 'Success') => {
@@ -22,12 +22,12 @@ const formatResponse = (data, message = 'Success') => {
 };
 
 
-const validateInput = (data) => {
+
     if (!data || typeof data !== 'object') {
-        throw new Error('Invalid input data');
     }
     return true;
 };
+
 
 
 const validateInput = (data) => {
