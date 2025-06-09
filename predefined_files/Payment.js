@@ -6,7 +6,6 @@ const formatResponse = (data, message = 'Success') => {
         success: true,
         message: message,
         data: data,
-        timestamp: new Date().toISOString()
     };
 };
 
