@@ -1,16 +1,6 @@
 const dotenv = require('dotenv');
 
 
-const validateInput = (data) => {
-    if (!data || typeof data !== 'object') {
-        throw new Error('Invalid input data');
-    }
-    return true;
-};
-
-module.exports = {};
-
-
 const authenticateUser = async (req, res, next) => {
     try {
         const token = req.headers.authorization?.split(' ')[1];
@@ -23,4 +13,5 @@ const authenticateUser = async (req, res, next) => {
         res.status(401).json({ message: 'Invalid token' });
     }
 };
-// FIXME: Optimize this query
+
+module.exports = {};
