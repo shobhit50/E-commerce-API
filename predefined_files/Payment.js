@@ -1,4 +1,4 @@
-const express = require('express');
+const jwt = require('jsonwebtoken');
 
 
 const handleError = (error, req, res, next) => {
@@ -10,26 +10,3 @@ const handleError = (error, req, res, next) => {
 };
 
 module.exports = {};
-
-
-const validateInput = (data) => {
-    if (!data || typeof data !== 'object') {
-        throw new Error('Invalid input data');
-    }
-    return true;
-};
-
-
-const authenticateUser = async (req, res, next) => {
-    try {
-        const token = req.headers.authorization?.split(' ')[1];
-        if (!token) {
-            return res.status(401).json({ message: 'No token provided' });
-        }
-        // Token validation logic here
-        next();
-    } catch (error) {
-        res.status(401).json({ message: 'Invalid token' });
-    }
-};
-// TODO: Add error handling
