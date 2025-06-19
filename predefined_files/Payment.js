@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const cors = require('cors');
 
 
 const handleError = (error, req, res, next) => {
@@ -10,13 +10,3 @@ const handleError = (error, req, res, next) => {
 };
 
 module.exports = {};
-
-
-const formatResponse = (data, message = 'Success') => {
-    return {
-        success: true,
-        message: message,
-        data: data,
-        timestamp: new Date().toISOString()
-    };
-};
