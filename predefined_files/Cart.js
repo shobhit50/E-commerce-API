@@ -1,14 +1,4 @@
-const dotenv = require('dotenv');
-
-
-const validateInput = (data) => {
-    if (!data || typeof data !== 'object') {
-        throw new Error('Invalid input data');
-    }
-    return true;
-};
-
-module.exports = {};
+const cors = require('cors');
 
 
 const authenticateUser = async (req, res, next) => {
@@ -23,3 +13,5 @@ const authenticateUser = async (req, res, next) => {
         res.status(401).json({ message: 'Invalid token' });
     }
 };
+
+module.exports = {};
