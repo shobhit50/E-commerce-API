@@ -1,13 +1,11 @@
-const bcrypt = require('bcryptjs');
+const mongoose = require('mongoose');
 
 
-const formatResponse = (data, message = 'Success') => {
-    return {
-        success: true,
-        message: message,
-        data: data,
-        timestamp: new Date().toISOString()
-    };
+const validateInput = (data) => {
+    if (!data || typeof data !== 'object') {
+        throw new Error('Invalid input data');
+    }
+    return true;
 };
 
 module.exports = {};
