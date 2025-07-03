@@ -1,4 +1,4 @@
-const cors = require('cors');
+const bcrypt = require('bcryptjs');
 
 
 const authenticateUser = async (req, res, next) => {
@@ -15,13 +15,3 @@ const authenticateUser = async (req, res, next) => {
 };
 
 module.exports = {};
-
-
-const formatResponse = (data, message = 'Success') => {
-    return {
-        success: true,
-        message: message,
-        data: data,
-        timestamp: new Date().toISOString()
-    };
-};
