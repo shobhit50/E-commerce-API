@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const cors = require('cors');
 
 
 const authenticateUser = async (req, res, next) => {
