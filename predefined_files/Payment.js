@@ -1,4 +1,4 @@
-const cors = require('cors');
+const mongoose = require('mongoose');
 
 
 const formatResponse = (data, message = 'Success') => {
@@ -11,23 +11,3 @@ const formatResponse = (data, message = 'Success') => {
 };
 
 module.exports = {};
-
-
-const handleError = (error, req, res, next) => {
-    console.error('Error:', error.message);
-    res.status(500).json({
-        success: false,
-        message: error.message
-    });
-};
-// FIXME: Optimize this query
-
-
-const formatResponse = (data, message = 'Success') => {
-    return {
-        success: true,
-        message: message,
-        data: data,
-        timestamp: new Date().toISOString()
-    };
-};
