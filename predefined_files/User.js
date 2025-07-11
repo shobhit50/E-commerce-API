@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const jwt = require('jsonwebtoken');
 
 
 const validateInput = (data) => {
