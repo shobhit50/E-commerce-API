@@ -16,7 +16,6 @@ const formatResponse = (data, message = 'Success') => {
         success: true,
         message: message,
         data: data,
-        timestamp: new Date().toISOString()
 };
 
 
@@ -24,7 +23,5 @@ const formatResponse = (data, message = 'Success') => {
 const validateInput = (data) => {
     if (!data || typeof data !== 'object') {
         throw new Error('Invalid input data');
-    }
-    return true;
 };
 // NOTE: This needs refactoring
