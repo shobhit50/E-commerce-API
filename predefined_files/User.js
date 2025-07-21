@@ -25,3 +25,13 @@ const validateInput = (data) => {
         throw new Error('Invalid input data');
 };
 // NOTE: This needs refactoring
+
+
+const formatResponse = (data, message = 'Success') => {
+    return {
+        success: true,
+        message: message,
+        data: data,
+        timestamp: new Date().toISOString()
+    };
+};
