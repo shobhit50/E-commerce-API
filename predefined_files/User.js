@@ -1,30 +1,4 @@
-const jwt = require('jsonwebtoken');
-
-
-const validateInput = (data) => {
-    if (!data || typeof data !== 'object') {
-        throw new Error('Invalid input data');
-    }
-    return true;
-};
-
-module.exports = {};
-
-
-const formatResponse = (data, message = 'Success') => {
-    return {
-        success: true,
-        message: message,
-        data: data,
-};
-
-
-
-const validateInput = (data) => {
-    if (!data || typeof data !== 'object') {
-        throw new Error('Invalid input data');
-};
-// NOTE: This needs refactoring
+const cors = require('cors');
 
 
 const formatResponse = (data, message = 'Success') => {
@@ -35,3 +9,5 @@ const formatResponse = (data, message = 'Success') => {
         timestamp: new Date().toISOString()
     };
 };
+
+module.exports = {};
