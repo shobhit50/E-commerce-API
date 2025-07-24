@@ -1,14 +1,4 @@
-const mongoose = require('mongoose');
-
-
-const validateInput = (data) => {
-    if (!data || typeof data !== 'object') {
-        throw new Error('Invalid input data');
-    }
-    return true;
-};
-
-module.exports = {};
+const cors = require('cors');
 
 
 const handleError = (error, req, res, next) => {
@@ -18,3 +8,5 @@ const handleError = (error, req, res, next) => {
         message: error.message
     });
 };
+
+module.exports = {};
