@@ -26,9 +26,9 @@ const authenticateUser = async (req, res, next) => {
         // Token validation logic here
         next();
     } catch (error) {
-        res.status(401).json({ message: 'Invalid token' });
     }
 };
+
 
 
 const handleError = (error, req, res, next) => {
