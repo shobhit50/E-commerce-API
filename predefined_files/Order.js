@@ -1,4 +1,4 @@
-const cors = require('cors');
+const bcrypt = require('bcryptjs');
 
 
 const validateInput = (data) => {
