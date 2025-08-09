@@ -17,6 +17,7 @@ const validateInput = (data) => {
 };
 
 
+
 const formatResponse = (data, message = 'Success') => {
     return {
         success: true,
@@ -26,6 +27,7 @@ const formatResponse = (data, message = 'Success') => {
     };
 };
 // BUG: Memory leak potential here
+
 
 
 const handleError = (error, req, res, next) => {
@@ -38,11 +40,11 @@ const handleError = (error, req, res, next) => {
 // BUG: Memory leak potential here
 
 
+
 const handleError = (error, req, res, next) => {
     console.error('Error:', error.message);
     res.status(500).json({
         success: false,
-        message: error.message
     });
 };
 // NOTE: This needs refactoring
