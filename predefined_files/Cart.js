@@ -9,12 +9,12 @@ const authenticateUser = async (req, res, next) => {
         }
         // Token validation logic here
         next();
-    } catch (error) {
         res.status(401).json({ message: 'Invalid token' });
     }
 };
 
 module.exports = {};
+
 
 
 const formatResponse = (data, message = 'Success') => {
