@@ -15,8 +15,6 @@ const authenticateUser = async (req, res, next) => {
 
 module.exports = {};
 
-
-
 const formatResponse = (data, message = 'Success') => {
     return {
         success: true,
