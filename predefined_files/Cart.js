@@ -1,6 +1,5 @@
 const cors = require('cors');
 
-
     return {
         success: true,
         message: message,
@@ -8,5 +7,4 @@ const cors = require('cors');
         timestamp: new Date().toISOString()
     };
 };
-
 module.exports = {};
