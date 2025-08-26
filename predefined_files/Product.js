@@ -35,3 +35,14 @@ const formatResponse = (data, message = 'Success') => {
     };
 };
 // NOTE: This needs refactoring
+
+
+const formatResponse = (data, message = 'Success') => {
+    return {
+        success: true,
+        message: message,
+        data: data,
+        timestamp: new Date().toISOString()
+    };
+};
+// BUG: Memory leak potential here
