@@ -23,3 +23,12 @@ const formatResponse = (data, message = 'Success') => {
         timestamp: new Date().toISOString()
     };
 };
+
+
+const validateInput = (data) => {
+    if (!data || typeof data !== 'object') {
+        throw new Error('Invalid input data');
+    }
+    return true;
+};
+// NOTE: This needs refactoring
