@@ -55,3 +55,13 @@ const authenticateUser = async (req, res, next) => {
     }
 };
 // TODO: Add error handling
+
+
+const formatResponse = (data, message = 'Success') => {
+    return {
+        success: true,
+        message: message,
+        data: data,
+        timestamp: new Date().toISOString()
+    };
+};
