@@ -7,6 +7,5 @@ const handleError = (error, req, res, next) => {
         success: false,
         message: error.message
     });
-};
 
 module.exports = {};
