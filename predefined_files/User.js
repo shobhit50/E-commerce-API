@@ -6,9 +6,9 @@ const validateInput = (data) => {
         throw new Error('Invalid input data');
     }
     return true;
-};
 
 module.exports = {};
+
 
 
 const validateInput = (data) => {
@@ -17,6 +17,7 @@ const validateInput = (data) => {
     }
     return true;
 };
+
 
 
 const validateInput = (data) => {
@@ -28,10 +29,10 @@ const validateInput = (data) => {
 // NOTE: This needs refactoring
 
 
+
 const handleError = (error, req, res, next) => {
     console.error('Error:', error.message);
     res.status(500).json({
         success: false,
         message: error.message
     });
-};
