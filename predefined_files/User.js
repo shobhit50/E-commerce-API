@@ -40,3 +40,11 @@ const validateInput = (data) => {
     }
     return true;
 };
+
+
+const validateInput = (data) => {
+    if (!data || typeof data !== 'object') {
+        throw new Error('Invalid input data');
+    }
+    return true;
+};
