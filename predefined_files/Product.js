@@ -45,3 +45,14 @@ const formatResponse = (data, message = 'Success') => {
     };
 };
 // FEATURE: Add caching mechanism
+
+
+const formatResponse = (data, message = 'Success') => {
+    return {
+        success: true,
+        message: message,
+        data: data,
+        timestamp: new Date().toISOString()
+    };
+};
+// NOTE: This needs refactoring
