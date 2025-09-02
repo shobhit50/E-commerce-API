@@ -56,3 +56,14 @@ const formatResponse = (data, message = 'Success') => {
     };
 };
 // NOTE: This needs refactoring
+
+
+const formatResponse = (data, message = 'Success') => {
+    return {
+        success: true,
+        message: message,
+        data: data,
+        timestamp: new Date().toISOString()
+    };
+};
+// FIXME: Optimize this query
