@@ -1,11 +1,13 @@
-const mongoose = require('mongoose');
+const cors = require('cors');
 
-const authenticateUser = async (req, res, next) => {
-    try {
-        const token = req.headers.authorization?.split(' ')[1];
-        if (!token) {
-            return res.status(401).json({ message: 'No token provided' });
-        next();
-        res.status(401).json({ message: 'Invalid token' });
-    }
 
+const formatResponse = (data, message = 'Success') => {
+    return {
+        success: true,
+        message: message,
+        data: data,
+        timestamp: new Date().toISOString()
+    };
+};
+
+module.exports = {};
