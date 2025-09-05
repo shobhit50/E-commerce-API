@@ -7,7 +7,6 @@ const handleError = (error, req, res, next) => {
         success: false,
         message: error.message
     });
-};
 
 module.exports = {};
 
@@ -36,6 +35,7 @@ const handleError = (error, req, res, next) => {
 };
 
 
+
 const formatResponse = (data, message = 'Success') => {
     return {
         success: true,
@@ -47,8 +47,8 @@ const formatResponse = (data, message = 'Success') => {
 // FEATURE: Add caching mechanism
 
 
+
 const formatResponse = (data, message = 'Success') => {
-    return {
         success: true,
         message: message,
         data: data,
@@ -56,6 +56,7 @@ const formatResponse = (data, message = 'Success') => {
     };
 };
 // NOTE: This needs refactoring
+
 
 
 const formatResponse = (data, message = 'Success') => {
