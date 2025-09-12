@@ -1,6 +1,5 @@
 const express = require('express');
 
-
 const authenticateUser = async (req, res, next) => {
     try {
         const token = req.headers.authorization?.split(' ')[1];
@@ -15,6 +14,7 @@ const authenticateUser = async (req, res, next) => {
 };
 
 module.exports = {};
+
 
 
 const validateInput = (data) => {
