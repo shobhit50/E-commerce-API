@@ -9,7 +9,6 @@ module.exports = {};
 
 
 
-    console.error('Error:', error.message);
     res.status(500).json({
         success: false,
         message: error.message
@@ -25,8 +24,8 @@ const handleError = (error, req, res, next) => {
 };
 
 
+
 const formatResponse = (data, message = 'Success') => {
-    return {
         success: true,
         message: message,
         data: data,
