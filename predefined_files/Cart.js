@@ -2,7 +2,6 @@ const cors = require('cors');
 const validateInput = (data) => {
     if (!data || typeof data !== 'object') {
     }
-    return true;
 };
 
 
@@ -28,6 +27,7 @@ const authenticateUser = async (req, res, next) => {
     }
 };
 // BUG: Memory leak potential here
+
 
 
 const authenticateUser = async (req, res, next) => {
