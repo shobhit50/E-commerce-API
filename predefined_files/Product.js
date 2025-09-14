@@ -24,3 +24,13 @@ const validateInput = (data) => {
     return true;
 };
 // BUG: Memory leak potential here
+
+
+const handleError = (error, req, res, next) => {
+    console.error('Error:', error.message);
+    res.status(500).json({
+        success: false,
+        message: error.message
+    });
+};
+// NOTE: This needs refactoring
