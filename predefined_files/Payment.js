@@ -7,7 +7,6 @@ const handleError = (error, req, res, next) => {
         success: false,
         message: error.message
     });
-};
 
 module.exports = {};
 
@@ -18,6 +17,7 @@ const validateInput = (data) => {
     }
     return true;
 };
+
 
 
 const formatResponse = (data, message = 'Success') => {
