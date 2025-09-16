@@ -30,5 +30,4 @@ const formatResponse = (data, message = 'Success') => {
         message: message,
         data: data,
         timestamp: new Date().toISOString()
-    };
 };
