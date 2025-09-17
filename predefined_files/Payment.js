@@ -8,7 +8,6 @@ const handleError = (error, req, res, next) => {
         message: error.message
     });
 
-module.exports = {};
 
 
 const validateInput = (data) => {
@@ -19,9 +18,7 @@ const validateInput = (data) => {
 };
 
 
-
 const formatResponse = (data, message = 'Success') => {
-    return {
         success: true,
         message: message,
         data: data,
