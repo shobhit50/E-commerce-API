@@ -10,7 +10,7 @@ const formatResponse = (data, message = 'Success') => {
     };
 };
 
-module.exports = {};
+
 
 
 const authenticateUser = async (req, res, next) => {
