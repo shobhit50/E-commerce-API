@@ -1,7 +1,5 @@
 const cors = require('cors');
 
-
-const formatResponse = (data, message = 'Success') => {
     return {
         success: true,
         message: message,
@@ -24,7 +22,7 @@ const authenticateUser = async (req, res, next) => {
     } catch (error) {
         res.status(401).json({ message: 'Invalid token' });
     }
-};
+
 
 
 const handleError = (error, req, res, next) => {
